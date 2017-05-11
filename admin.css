@@ -1,0 +1,32 @@
+@charset "utf-8";
+/* CSS Document */
+#target_eb_plugins_iframe {
+	position: absolute;
+	top: 0;
+	left: -999px;
+}
+.eb-plugin-submit {
+	position: fixed;
+	bottom: 25px;
+	right: 25px;
+	z-index: 1;
+}
+.etm-d-none { display: none; }
+body.etm-no-scroll { overflow: hidden; }
+#etm_edit_tags {
+	position: fixed;
+	top: 0;
+	left: auto;
+	bottom: 0;
+	right: 0;
+	width: 90%;
+	max-width: 999px;
+	background: #fff;
+	z-index: 100000;
+	height: 300px;
+	overflow: auto;
+	display: none;
+	border-left: 1px #ccc solid;
+}
+.etm-edit-tags-padding { padding: 25px; }
+body.etm-no-scroll #etm_edit_tags { display: block; }

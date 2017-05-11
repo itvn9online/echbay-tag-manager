@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="{tmp.etm_plugin_url}admin.css?v={tmp.etm_plugin_version}" type="text/css" />
+<div class="efm-exemple-relative">
+	<div class="wrap">
+		<h1>EchBay Tags Manager</h1>
+		<p class="submit">
+			<input type="button" name="create_new_tags" id="create_new_tags" class="button button-primary" value="NEW" />
+		</p>
+		<div class="etm-d-none show-if-tags-null">
+			<p align="center">This container has no tags, click the "New" button to create one.</p>
+		</div>
+		<div id="etm_list_tags" class="etm-d-none">
+			<table class="wp-list-table widefat fixed striped posts">
+				<thead>
+					<tr>
+						<th scope="col">Title</th>
+						<th scope="col">Show in Page</th>
+						<th scope="col">Show in URL</th>
+						<th scope="col">Status</th>
+					</tr>
+				</thead>
+				<tbody id="the-list">
+					<tr>
+						<td><a href="javascript:;" data-id="{jmp.tags_id}" class="click-to-edit-echbay-tags">{jmp.name_tags}</a></td>
+						<td>{jmp.page_tags}</td>
+						<td>{jmp.url_tags}</td>
+						<td>{jmp.status_tags}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<div id="etm_edit_tags">
+			<div class="etm-edit-tags-padding">
+				<form name="echbay_config_for_efm" id="echbay_config_for_efm" method="post" action="" onSubmit="return ETM_check_before_update();" class="validate" target="target_eb_plugins_iframe">
+					<div class="etm-d-none">
+						<input type="text" id="_ebnonce" name="_ebnonce" value="{tmp._ebnonce}" />
+						<input type="text" id="_eb_tags_id" name="_eb_tags_id" value="" />
+						<textarea name="_etm_header_body_tags" id="header_body_tags"></textarea>
+					</div>
+					<table class="form-table">
+						<tr class="form-field form-required term-name-wrap">
+							<th scope="row"><label for="name_tags">Name Title</label></th>
+							<td><input name="name_tags" id="name_tags" type="text" value="" placeholder="Name Title" aria-required="true" required /></td>
+						</tr>
+						<tr class="form-field term-description-wrap">
+							<th scope="row"><label for="header_tags">Header Tags</label></th>
+							<td><textarea name="header_tags" id="header_tags" rows="5" cols="50" placeholder="Tags will be add to HEAD your website" class="large-text etm-fix-textarea-height"></textarea>
+								<p class="description">Tags in header website, before &lt;/HEAD&gt;</p></td>
+						</tr>
+						<tr class="form-field term-description-wrap">
+							<th scope="row"><label for="body_tags">Body Tags</label></th>
+							<td><textarea name="body_tags" id="body_tags" rows="5" cols="50" placeholder="Tags will be add to BODY your website" class="large-text etm-fix-textarea-height"></textarea>
+								<p class="description">Tags in footer website, before &lt;/BODY&gt;</p></td>
+						</tr>
+						<tr class="form-field form-required term-name-wrap">
+							<th scope="row"><label for="page_tags_all">Show in Page</label></th>
+							<td><div id="etm_show_list_page"></div>
+								<p class="description">Select page for show this tags</p></td>
+						</tr>
+						<tr class="form-field form-required term-name-wrap">
+							<th scope="row"><label for="url_tags">Show in URL</label></th>
+							<td><input name="url_tags" id="url_tags" type="text" value="" placeholder="Enter URL for show this tags" /></td>
+						</tr>
+						<tr class="form-field term-description-wrap">
+							<th scope="row"><label for="status_tags">Status</label></th>
+							<td><input type="radio" id="status_tags" name="status_tags" value="show" checked>
+								<label for="status_tags">Show</label>
+								&nbsp; &nbsp;
+								<input type="radio" id="status_tags_hide" name="status_tags" value="hide">
+								<label for="status_tags_hide">Hide</label></td>
+						</tr>
+					</table>
+					<div class="eb-plugin-submit">
+						<button type="button" onClick="ETM_close_form_edit_tags();" class="button cancel alignleft">Cancel</button>
+						&nbsp; &nbsp;
+						<input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<iframe id="target_eb_plugins_iframe" name="target_eb_plugins_iframe" src="about:blank" width="750" height="600">AJAX form</iframe>
+<script type="text/javascript">{tmp.js}</script> 
+<script type="text/javascript" async src="{tmp.etm_plugin_url}admin.js?v={tmp.etm_plugin_version}"></script> 
