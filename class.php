@@ -186,6 +186,9 @@ var etm_arr_all_tags = ' . $this->custom_setting . ',
 			//
 //			add_action( 'wp_enqueue_scripts', array( $this, 'guest_script' ) );
 //			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version );
+			
+			// add js file to footer
+			$this->footer();
 		}
 		function footer() {
 			/*

@@ -38,7 +38,7 @@ if (is_admin ()) {
 // or guest (public in theme)
 else {
 	add_action ( 'wp_head', 'ETM_add_echbay_tags_manager_to_site_header' );
-	add_action ( 'wp_footer', 'ETM_add_echbay_tags_manager_to_site_footer' );
+//	add_action ( 'wp_footer', 'ETM_add_echbay_tags_manager_to_site_footer' );
 }
 
 
