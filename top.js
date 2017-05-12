@@ -26,10 +26,10 @@ else {
 //				console.log( etm_arr_all_tags[i] );
 				
 				//
-				var show_script = true;
-				
-				//
 				if ( etm_arr_all_tags[i].status_tags == 'show' ) {
+					
+					// default show script
+					var show_script = true;
 					
 					// unescape data
 //					console.log( etm_arr_all_tags[i] );
@@ -51,17 +51,23 @@ else {
 						
 						//
 //						console.log( etm_arr_all_tags[i].page_tags );
-						etm_arr_all_tags[i].page_tags = etm_arr_all_tags[i].page_tags.replace(/\s/g, '').split(',');
-//						console.log( etm_arr_all_tags[i].page_tags );
+						var arr_check = etm_arr_all_tags[i].page_tags.replace(/\s/g, '').split(',');
+//						console.log( arr_check );
 						
 						// check class body -> current page
-						for ( var j = 0; j < etm_arr_all_tags[i].page_tags.length; j++ ) {
-//							console.log( etm_arr_all_tags[i].page_tags[j] );
+						for ( var j = 0; j < arr_check.length; j++ ) {
+//							console.log( arr_check[j] );
 							
 							// check current page
 							if ( show_script == false ) {
-								if ( etm_body_class.split( etm_arr_all_tags[i].page_tags[j] ).length > 1 ) {
-									show_script = true;
+								arr_check[j] = jQuery.trim( arr_check[j] );
+								
+								if ( arr_check[j] != '' ) {
+									if ( etm_body_class.split( arr_check[j] ).length > 1 ) {
+										console.log( 'ETM: show in page ' + arr_check[j] );
+										show_script = true;
+										break;
+									}
 								}
 							}
 						}
@@ -70,11 +76,34 @@ else {
 					
 					// check if show in url only
 					if ( etm_arr_all_tags[i].url_tags != '' ) {
-						// if URL not true -> break
-						if ( window.location.href.split( etm_arr_all_tags[i].url_tags ).length == 1 ) {
-//							etm_arr_all_tags[i].header_tags = '';
-//							etm_arr_all_tags[i].body_tags = '';
-							show_script = false;
+						
+						// -> not show script
+						show_script = false;
+						
+						//
+						var wlh = window.location.href;
+						
+						//
+//						console.log( etm_arr_all_tags[i].url_tags );
+						var arr_check = etm_arr_all_tags[i].url_tags.split(',');
+//						console.log( arr_check );
+						
+						// check URL custom set
+						for ( var j = 0; j < arr_check.length; j++ ) {
+//							console.log( arr_check[j] );
+							
+							// check current URL
+							if ( show_script == false ) {
+								arr_check[j] = jQuery.trim( arr_check[j] );
+								
+								if ( arr_check[j] != '' ) {
+									if ( wlh.split( arr_check[j] ).length > 1 ) {
+										console.log( 'ETM: show in URL ' + arr_check[j] );
+										show_script = true;
+//										break;
+									}
+								}
+							}
 						}
 					}
 					
@@ -96,18 +125,18 @@ else {
 			
 			// print header
 			if ( str != '' ) {
+				// recommend using jQuery
 				if (typeof jQuery == 'function') {
 					jQuery("head").append( str );
 				}
+				// basic javascript
 				else {
 					document.write( str );
 				}
 			}
-			/*
 			else {
-				console.log('EchBay Tags Manager HEADER is NULL');
+				console.log('ETM HEADER is NULL');
 			}
-			*/
 		})();
 		
 		//

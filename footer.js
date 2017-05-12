@@ -15,7 +15,7 @@ function ETM_reset_document_write_to_old () {
 }
 
 // print footer
-if (typeof jQuery == 'function') {
+//if (typeof jQuery == 'function') {
 	
 	try {
 		
@@ -24,15 +24,17 @@ if (typeof jQuery == 'function') {
 			
 			// exist if code not found
 			if ( typeof etm_code_in_footer_this_site == 'undefined' || etm_code_in_footer_this_site == '' ) {
-				console.log('EchBay Tags Manager FOOTER is NULL');
+				console.log('ETM FOOTER is NULL');
 				return false;
 			}
 			
 			
 			// change doc write to be friendlier, temporary
-			document.write = function(node){
-				jQuery("body").append(node);
-			};
+			if (typeof jQuery == 'function') {
+				document.write = function(node){
+					jQuery("body").append(node);
+				};
+			}
 			
 			
 			//
@@ -41,9 +43,18 @@ if (typeof jQuery == 'function') {
 			
 			
 			// let the above script run, then replace doc.write
-			jQuery(window).load(function () {
-				ETM_reset_document_write_to_old();
-			});
+			if (typeof jQuery == 'function') {
+				jQuery(window).load(function () {
+					ETM_reset_document_write_to_old();
+				});
+			}
+			else {
+				console.log('EchBay Tag Manager recommend using jQuery.');
+				
+				window.onload = function (e) {
+					ETM_reset_document_write_to_old();
+				}
+			}
 			
 			// max 10 seconde for set old document write
 			setTimeout(function() {
@@ -56,8 +67,8 @@ if (typeof jQuery == 'function') {
 		console.log( 'stack: ' + (e.stackTrace || e.stack) );
 	}
 	
-}
 /*
+}
 else {
 	console.log('EchBay Tag Manager not start! jQuery function not found.');
 }
