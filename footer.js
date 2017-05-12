@@ -57,9 +57,11 @@ if (typeof jQuery == 'function') {
 	}
 	
 }
+/*
 else {
 	console.log('EchBay Tag Manager not start! jQuery function not found.');
 }
+*/
 
 
 
