@@ -16,9 +16,6 @@ else {
 	try {
 		
 		//
-		console.log('EchBay Tags Manager is running... version ' + etm_plugins_version);
-		
-		//
 //		console.log( etm_arr_all_tags );
 		
 		//
@@ -60,10 +57,17 @@ else {
 			
 			// print header
 			if ( str != '' ) {
-//				jQuery("head").append( str );
-				document.write( str );
+				if (typeof jQuery == 'function') {
+					jQuery("head").append( str );
+				}
+				else {
+					document.write( str );
+				}
 			}
 		})();
+		
+		//
+		console.log('EchBay Tags Manager is running... version ' + etm_plugins_version);
 		
 	} catch ( e ) {
 		console.log( 'stack: ' + (e.stackTrace || e.stack) );
