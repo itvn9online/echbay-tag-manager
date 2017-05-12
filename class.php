@@ -185,18 +185,21 @@ var etm_arr_all_tags = ' . $this->custom_setting . ',
 			
 			//
 //			add_action( 'wp_enqueue_scripts', array( $this, 'guest_script' ) );
+//			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version );
 		}
 		function footer() {
+			/*
 			echo '<!-- EchBay Tag Manager (footer) -->
 <script type="text/javascript" src="' . $this->etm_url . 'footer.js?v=' . $this->media_version . '"></script>
 <!-- End EchBay Tag Manager (footer) -->';
+			*/
 			
 			//
 //			wp_register_script( $this->enqueue . 'footer', $this->etm_url . 'footer.js', array(), $this->media_version );
 			
 //			wp_enqueue_script( $this->enqueue . 'footer' );
 			
-//			wp_enqueue_script( $this->enqueue . 'footer', $this->etm_url . 'footer.js', array(), $this->media_version );
+			wp_enqueue_script( $this->enqueue . 'footer', $this->etm_url . 'footer.js', array(), $this->media_version );
 		}
 		
 		// add value to template file
