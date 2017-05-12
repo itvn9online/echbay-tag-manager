@@ -84,6 +84,9 @@ if (! class_exists ( 'ETM_Actions_Module' )) {
 			return '';
 		}
 		
+		
+		
+		
 		// update custom setting
 		function update() {
 			if ($_SERVER ['REQUEST_METHOD'] == 'POST' && isset( $_POST['_ebnonce'] )) {
@@ -124,6 +127,9 @@ alert("Update done!");
 			} // end if POST
 		}
 		
+		
+		
+		
 		function admin_script () {
 			wp_enqueue_script( $this->enqueue . 'admin', $this->etm_url . 'admin.js', array(), $this->media_version );
 		}
@@ -159,6 +165,9 @@ alert("Update done!");
 			
 		}
 		
+		
+		
+		
 		function guest_script () {
 			
 			//
@@ -185,7 +194,8 @@ var etm_arr_all_tags = ' . $this->custom_setting . ',
 			
 			//
 //			add_action( 'wp_enqueue_scripts', array( $this, 'guest_script' ) );
-//			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version );
+//			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', false, $this->media_version, false);
+//			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version, false );
 			
 			// add js file to footer
 			$this->footer();
@@ -204,6 +214,9 @@ var etm_arr_all_tags = ' . $this->custom_setting . ',
 			
 			wp_enqueue_script( $this->enqueue . 'footer', $this->etm_url . 'footer.js', array(), $this->media_version );
 		}
+		
+		
+		
 		
 		// add value to template file
 		function template($temp, $val = array(), $tmp = 'tmp') {
