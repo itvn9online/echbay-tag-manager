@@ -21,6 +21,8 @@ if (! class_exists ( 'ETM_Actions_Module' )) {
 		
 		var $ebnonce = '';
 		
+		var $enqueue = 'ETM-static-';
+		
 		
 		/*
 		* begin
@@ -122,12 +124,20 @@ alert("Update done!");
 			} // end if POST
 		}
 		
+		function admin_script () {
+			wp_enqueue_script( $this->enqueue . 'admin', $this->etm_url . 'admin.js', array(), $this->media_version );
+		}
+		
 		// form admin
 		function admin() {
 			
 			// admin -> used real time version
 			$this->media_version = time();
 			
+			//
+			wp_enqueue_style( $this->enqueue . 'admin', $this->etm_url . 'admin.css', array(), $this->media_version, 'all' );
+			
+			//
 			$main = file_get_contents ( ETM_DF_DIR . 'admin.html', 1 );
 			
 			$main = $this->template ( $main, array (
@@ -143,6 +153,21 @@ alert("Update done!");
 			
 			echo $main;
 			
+			//
+//			add_action( 'admin_enqueue_scripts', array( $this, 'admin_script' ) );
+			wp_enqueue_script( $this->enqueue . 'admin', $this->etm_url . 'admin.js', array(), $this->media_version );
+			
+		}
+		
+		function guest_script () {
+			
+			//
+//			wp_register_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version, true );
+			
+//			wp_enqueue_script( $this->enqueue . 'top' );
+			
+			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version, false );
+			
 		}
 		
 		// get html for theme
@@ -157,11 +182,21 @@ var etm_arr_all_tags = ' . $this->custom_setting . ',
 </script>
 <script type="text/javascript" src="' . $this->etm_url . 'top.js?v=' . $this->media_version . '"></script>
 <!-- End EchBay Tag Manager -->';
+			
+			//
+//			add_action( 'wp_enqueue_scripts', array( $this, 'guest_script' ) );
 		}
 		function footer() {
 			echo '<!-- EchBay Tag Manager (footer) -->
 <script type="text/javascript" src="' . $this->etm_url . 'footer.js?v=' . $this->media_version . '"></script>
 <!-- End EchBay Tag Manager (footer) -->';
+			
+			//
+//			wp_register_script( $this->enqueue . 'footer', $this->etm_url . 'footer.js', array(), $this->media_version );
+			
+//			wp_enqueue_script( $this->enqueue . 'footer' );
+			
+//			wp_enqueue_script( $this->enqueue . 'footer', $this->etm_url . 'footer.js', array(), $this->media_version );
 		}
 		
 		// add value to template file
@@ -195,6 +230,7 @@ function ETM_add_menu_setting_to_admin_menu() {
 		add_menu_page ( 'EchBay Tag Manager', 'EB Tag Manager', 'manage_options', 'etm-custom-setting', 'ETM_show_setting_form_in_admin', NULL, 99 );
 	}
 }
+
 
 
 

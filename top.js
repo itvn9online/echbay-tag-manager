@@ -4,11 +4,13 @@
 // content code in footer
 var etm_code_in_footer_this_site = '';
 
-	
+
+/*
 if (typeof jQuery != 'function') {
 	console.log('EchBay Tag Manager not start! jQuery function not found.');
 }
 else {
+	*/
 	
 	//
 	try {
@@ -58,8 +60,8 @@ else {
 			
 			// print header
 			if ( str != '' ) {
-				jQuery("head").append( str );
-//				document.write( str );
+//				jQuery("head").append( str );
+				document.write( str );
 			}
 		})();
 		
@@ -67,6 +69,6 @@ else {
 		console.log( 'stack: ' + (e.stackTrace || e.stack) );
 	}
 
-}
+//}
 
 

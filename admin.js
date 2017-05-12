@@ -219,6 +219,9 @@ try {
 			if ( x == 'page_tags' ) {
 				arr[x] = arr[x].replace( /\,/gi, ', ' );
 			}
+			else if ( x == 'url_tags' && arr[x] == '' ) {
+				arr[x] = 'All URL';
+			}
 			
 			//
 			htm = htm.replace( '{jmp.' + x + '}', arr[x] );
