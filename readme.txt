@@ -1,4 +1,4 @@
-=== EchBay Facebook Messenger ===
+=== EchBay Tag Manager ===
 
 Contributors: itvn9online
 
