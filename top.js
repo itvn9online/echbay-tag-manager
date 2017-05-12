@@ -27,21 +27,33 @@ else {
 				
 				//
 				if ( etm_arr_all_tags[i].status_tags == 'show' ) {
-					etm_arr_all_tags[i].name_tags = '<!-- ' + unescape( etm_arr_all_tags[i].name_tags ) + ' (ETM) -->' + "\n";
-					etm_arr_all_tags[i].header_tags = unescape( etm_arr_all_tags[i].header_tags );
-					etm_arr_all_tags[i].body_tags = unescape( etm_arr_all_tags[i].body_tags );
+					
+					// unescape data
+//					console.log( etm_arr_all_tags[i] );
+					for ( var x in etm_arr_all_tags[i] ) {
+						etm_arr_all_tags[i][x] = unescape( etm_arr_all_tags[i][x] );
+					}
+//					console.log( etm_arr_all_tags[i] );
+					
+					
+					//
+					etm_arr_all_tags[i].name_tags = '<!-- ' + etm_arr_all_tags[i].name_tags + ' (ETM) -->' + "\n";
+					
+					
+					// check show in page select
+					if ( etm_arr_all_tags[i].page_tags != '' && etm_arr_all_tags[i].page_tags != 'all' ) {
+					}
+					
 					
 					// check if show in url only
 					if ( etm_arr_all_tags[i].url_tags != '' ) {
-						if ( window.location.href.split(etm_arr_all_tags[i].url_tags).length == 1 ) {
+						// if URL not true -> break
+						if ( window.location.href.split( etm_arr_all_tags[i].url_tags ).length == 1 ) {
 							etm_arr_all_tags[i].header_tags = '';
 							etm_arr_all_tags[i].body_tags = '';
 						}
-						else {
-							etm_arr_all_tags[i].header_tags = unescape( etm_arr_all_tags[i].header_tags );
-							etm_arr_all_tags[i].body_tags = unescape( etm_arr_all_tags[i].body_tags );
-						}
 					}
+					
 					
 					// header
 					if ( etm_arr_all_tags[i].header_tags != '' ) {

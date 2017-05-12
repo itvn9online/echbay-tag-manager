@@ -141,7 +141,10 @@ alert("Update done!");
 			$this->media_version = time();
 			
 			//
+//			echo '<link rel="stylesheet" href="' . $this->etm_url . 'admin.css?v=' . $this->media_version . '" type="text/css" />';
+			
 			wp_enqueue_style( $this->enqueue . 'admin', $this->etm_url . 'admin.css', array(), $this->media_version, 'all' );
+			
 			
 			//
 			$main = file_get_contents ( ETM_DF_DIR . 'admin.html', 1 );
@@ -193,9 +196,7 @@ var etm_arr_all_tags = ' . $this->custom_setting . ',
 <!-- End EchBay Tag Manager -->';
 			
 			//
-//			add_action( 'wp_enqueue_scripts', array( $this, 'guest_script' ) );
-//			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', false, $this->media_version, false);
-//			wp_enqueue_script( $this->enqueue . 'top', $this->etm_url . 'top.js', array(), $this->media_version, false );
+//			$this->guest_script();
 			
 			// add js file to footer
 			$this->footer();

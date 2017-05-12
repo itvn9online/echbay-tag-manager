@@ -13,7 +13,7 @@ var etm_click_esc_to_clode_etm_window = 0,
 
 
 //
-try {
+//try {
 	
 	function ETM_disable_input_page_tags () {
 		if ( document.getElementById('page_tags_all').checked == true ) {
@@ -112,12 +112,8 @@ try {
 	function ETM_escape_arr_for_update () {
 //		console.log( etm_arr_all_tags );
 		for ( var i = 0; i < etm_arr_all_tags.length; i++ ) {
-			var arr = etm_arr_all_tags[i];
-			
-			for ( var x in arr ) {
-				if ( typeof arr[x] == 'string' ) {
-					etm_arr_all_tags[i][x] = escape( arr[x] );
-				}
+			for ( var x in etm_arr_all_tags[i] ) {
+				etm_arr_all_tags[i][x] = escape( etm_arr_all_tags[i][x] );
 			}
 		}
 //		console.log( etm_arr_all_tags );
@@ -127,12 +123,8 @@ try {
 	function ETM_unescape_arr_for_update () {
 //		console.log( etm_arr_all_tags );
 		for ( var i = 0; i < etm_arr_all_tags.length; i++ ) {
-			var arr = etm_arr_all_tags[i];
-			
-			for ( var x in arr ) {
-				if ( typeof arr[x] == 'string' ) {
-					etm_arr_all_tags[i][x] = unescape( arr[x] );
-				}
+			for ( var x in etm_arr_all_tags[i] ) {
+				etm_arr_all_tags[i][x] = unescape( etm_arr_all_tags[i][x] );
 			}
 		}
 //		console.log( etm_arr_all_tags );
@@ -235,6 +227,8 @@ try {
 	
 	
 	function ETM_create_html_list () {
+		
+		//
 		ETM_unescape_arr_for_update();
 		
 		//
@@ -300,18 +294,18 @@ try {
 	}
 	
 	
+	// add new tags
+	jQuery('#create_new_tags').click(function () {
+		
+		ETM_open_form_edit_tags();
+		
+	});
+	
+	
 	
 	
 	//
 	(function () {
-		
-		
-		// add new tags
-		jQuery('#create_new_tags').click(function () {
-			
-			ETM_open_form_edit_tags();
-			
-		});
 		
 		
 		//
@@ -335,35 +329,37 @@ try {
 				<label for="page_tags_' + arr[i] + '">' + arr[i] + '</label>\
 				</br>';
 		}
+		
+		//
 		jQuery('#etm_show_list_page').html(str);
-		
-		//
-		jQuery('input[name="page_tags[]"]').change(function () {
-			ETM_disable_input_page_tags();
-		});
-		
-		
-		
-		//
-		if ( etm_arr_all_tags.length == 0 ) {
-			jQuery('.show-if-tags-null').show();
-		}
-		else {
-			
-			//
-			ETM_create_html_list();
-			
-			//
-			ETM_fix_textarea_height();
-		}
-		
 		
 	}());
 	
+	//
+	jQuery('input[name="page_tags[]"]').change(function () {
+		ETM_disable_input_page_tags();
+	});
 	
+	
+	
+	//
+	if ( etm_arr_all_tags.length == 0 ) {
+		jQuery('.show-if-tags-null').show();
+	}
+	else {
+		
+		//
+		ETM_create_html_list();
+		
+		//
+		ETM_fix_textarea_height();
+	}
+	
+/*	
 } catch ( e ) {
 	console.log( 'stack: ' + (e.stackTrace || e.stack) );
 }
+*/
 
 
 
