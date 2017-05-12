@@ -64,6 +64,9 @@ else {
 					document.write( str );
 				}
 			}
+			else {
+				console.log('EchBay Tags Manager HEADER is NULL');
+			}
 		})();
 		
 		//

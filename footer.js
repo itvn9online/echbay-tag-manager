@@ -24,6 +24,7 @@ if (typeof jQuery == 'function') {
 			
 			// exist if code not found
 			if ( typeof etm_code_in_footer_this_site == 'undefined' || etm_code_in_footer_this_site == '' ) {
+				console.log('EchBay Tags Manager FOOTER is NULL');
 				return false;
 			}
 			
