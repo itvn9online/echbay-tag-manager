@@ -54,11 +54,7 @@ Control tags manager same same google tag manager. Easily add and manage custom 
 
 
 
-1. Example tags in HEAD.
-
-2. Example tags in BODY.
-
-3. EchBay Tags Manager setting.
+1. EchBay Tags Manager setting.
 
 
 
