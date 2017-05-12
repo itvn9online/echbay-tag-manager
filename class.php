@@ -141,9 +141,9 @@ alert("Update done!");
 			$this->media_version = time();
 			
 			//
-//			echo '<link rel="stylesheet" href="' . $this->etm_url . 'admin.css?v=' . $this->media_version . '" type="text/css" />';
+			echo '<link rel="stylesheet" href="' . $this->etm_url . 'admin.css?v=' . $this->media_version . '" type="text/css" />';
 			
-			wp_enqueue_style( $this->enqueue . 'admin', $this->etm_url . 'admin.css', array(), $this->media_version, 'all' );
+//			wp_enqueue_style( $this->enqueue . 'admin', $this->etm_url . 'admin.css', array(), $this->media_version, 'all' );
 			
 			
 			//
