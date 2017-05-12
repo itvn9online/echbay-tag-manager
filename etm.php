@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: EchBay Tag Manager
- * Description: Control tags manager same same google tag manager.
+ * Description: Control tags manager same same google tag manager. Easily add and manage custom meta tags to various parts of your site or on individual posts, pages, URL...
  * Plugin URI: https://github.com/itvn9online/echbay-tag-manager
  * Author: Dao Quoc Dai
  * Author URI: https://www.facebook.com/ech.bay/

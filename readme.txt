@@ -4,7 +4,7 @@ Contributors: itvn9online
 
 Donate link: https://paypal.me/itvn9online/5
 
-Tags: tag manager, easy tag manager, google tag manager, custom tag manager, echbay tag manager
+Tags: tag manager, tags manager, easy tag manager, google tag manager, custom tag manager, echbay tag manager
 
 Requires at least: 3.3
 
@@ -16,7 +16,7 @@ Version: 1.0.0
 
 
 
-Control tags manager same same google tag manager.
+Control tags manager same same google tag manager. Easily add and manage custom meta tags to various parts of your site or on individual posts, pages, URL, such as Yahoo and Google verification tags.
 
 
 
@@ -24,7 +24,7 @@ Control tags manager same same google tag manager.
 
 
 
-Control tags manager same same google tag manager.
+Control tags manager same same google tag manager. Easily add and manage custom meta tags to various parts of your site or on individual posts, pages, URL, such as Yahoo and Google verification tags.
 
 
 
