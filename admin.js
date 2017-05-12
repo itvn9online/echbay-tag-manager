@@ -216,15 +216,16 @@ try {
 //			arr[x] = unescape( arr[x].slice() );
 			
 			//
+			var re = arr[x];
 			if ( x == 'page_tags' ) {
-				arr[x] = arr[x].replace( /\,/gi, ', ' );
+				re = arr[x].replace( /\,/gi, ', ' );
 			}
-			else if ( x == 'url_tags' && arr[x] == '' ) {
-				arr[x] = 'All URL';
+			else if ( x == 'url_tags' && re == '' ) {
+				re = 'All URL';
 			}
 			
 			//
-			htm = htm.replace( '{jmp.' + x + '}', arr[x] );
+			htm = htm.replace( '{jmp.' + x + '}', re );
 		}
 		htm = htm.replace( '{jmp.tags_id}', tags_id );
 		

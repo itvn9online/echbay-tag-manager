@@ -1,4 +1,5 @@
 <!-- <link rel="stylesheet" href="{tmp.etm_plugin_url}admin.css?v={tmp.etm_plugin_version}" type="text/css" /> -->
+
 <div class="efm-exemple-relative">
 	<div class="wrap">
 		<h1>EchBay Tags Manager</h1>
@@ -40,7 +41,7 @@
 					<table class="form-table">
 						<tr class="form-field form-required term-name-wrap">
 							<th scope="row"><label for="name_tags">Name Title</label></th>
-							<td><input name="name_tags" id="name_tags" type="text" value="" placeholder="Name Title" aria-required="true" required /></td>
+							<td><input name="name_tags" id="name_tags" type="text" value="" placeholder="ex: All page, booking page, contact page..." aria-required="true" required /></td>
 						</tr>
 						<tr class="form-field term-description-wrap">
 							<th scope="row"><label for="header_tags">Script in Header</label></th>
@@ -55,11 +56,12 @@
 						<tr class="form-field form-required term-name-wrap">
 							<th scope="row"><label for="page_tags_all">Show in Page</label></th>
 							<td><div id="etm_show_list_page"></div>
-								<p class="description">Select page for show this tags</p></td>
+								<p class="description">Select page for show this script. Default show on All the page.</p></td>
 						</tr>
 						<tr class="form-field form-required term-name-wrap">
-							<th scope="row"><label for="url_tags">Show in URL</label></th>
-							<td><input name="url_tags" id="url_tags" type="text" value="" placeholder="Enter URL for show this tags" /></td>
+							<th scope="row"><label for="url_tags">Show in URLs</label></th>
+							<td><input name="url_tags" id="url_tags" type="text" value="" placeholder="For example: /thankyou.html, /contact.php, /cart" />
+								<p class="description">For example: If you want this script to be executed on URLs <strong>www.example.com/thankyou.html, www.example.com/contact.php, www.example.com/cart</strong> then enter <strong>/thankyou.html, /contact.php, /cart</strong> instead of entering the full URL.</p></td>
 						</tr>
 						<tr class="form-field term-description-wrap">
 							<th scope="row"><label for="status_tags">Status</label></th>
@@ -82,4 +84,4 @@
 </div>
 <iframe id="target_eb_plugins_iframe" name="target_eb_plugins_iframe" src="about:blank" width="750" height="600">AJAX form</iframe>
 <script type="text/javascript">{tmp.js}</script> 
-<!-- <script type="text/javascript" async src="{tmp.etm_plugin_url}admin.js?v={tmp.etm_plugin_version}"></script> -->
+<!-- <script type="text/javascript" async src="{tmp.etm_plugin_url}admin.js?v={tmp.etm_plugin_version}"></script> --> 
