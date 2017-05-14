@@ -77,6 +77,10 @@ var etm_click_esc_to_clode_etm_window = 0,
 		
 		// add new
 		if ( tags_id == '' ) {
+			
+			// set new node for edit tags
+			jQuery('#_eb_tags_id').val( etm_arr_all_tags.length );
+			
 //			etm_arr_all_tags = [];
 			etm_arr_all_tags.push( new_arr );
 		}
@@ -217,6 +221,7 @@ var etm_click_esc_to_clode_etm_window = 0,
 			}
 			
 			//
+			htm = htm.replace( '{jmp.' + x + '}', re );
 			htm = htm.replace( '{jmp.' + x + '}', re );
 		}
 		htm = htm.replace( '{jmp.tags_id}', tags_id );

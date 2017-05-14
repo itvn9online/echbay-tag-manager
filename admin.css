@@ -30,3 +30,5 @@ body.etm-no-scroll { overflow: hidden; }
 }
 .etm-edit-tags-padding { padding: 25px; }
 body.etm-no-scroll #etm_edit_tags { display: block; }
+.eb-etm-table-title th { font-weight: bold; }
+.status_tags-hide { text-decoration: line-through; }

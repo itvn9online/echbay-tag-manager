@@ -5,6 +5,16 @@
 var etm_code_in_footer_this_site = '';
 
 
+//
+function ETM_trim ( str ) {
+	if (typeof jQuery == 'function') {
+		return jQuery.trim( str );
+	} else {
+		return str.replace(/^\s+|\s+$/g, "");
+	}
+}
+
+
 /*
 if (typeof jQuery != 'function') {
 	console.log('EchBay Tag Manager not start! jQuery function not found.');
@@ -60,7 +70,7 @@ else {
 							
 							// check current page
 							if ( show_script == false ) {
-								arr_check[j] = jQuery.trim( arr_check[j] );
+								arr_check[j] = ETM_trim( arr_check[j] );
 								
 								if ( arr_check[j] != '' ) {
 									if ( etm_body_class.split( arr_check[j] ).length > 1 ) {
@@ -94,7 +104,7 @@ else {
 							
 							// check current URL
 							if ( show_script == false ) {
-								arr_check[j] = jQuery.trim( arr_check[j] );
+								arr_check[j] = ETM_trim( arr_check[j] );
 								
 								if ( arr_check[j] != '' ) {
 									if ( wlh.split( arr_check[j] ).length > 1 ) {

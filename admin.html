@@ -1,6 +1,6 @@
 <div class="efm-exemple-relative">
 	<div class="wrap">
-		<h1>EchBay Tags Manager</h1>
+		<h1>EchBay Tags Manager version {tmp.etm_plugins_version}</h1>
 		<p class="submit">
 			<input type="button" name="create_new_tags" id="create_new_tags" class="button button-primary" value="NEW" />
 		</p>
@@ -10,7 +10,7 @@
 		<div id="etm_list_tags" class="etm-d-none">
 			<table class="wp-list-table widefat fixed striped posts">
 				<thead>
-					<tr>
+					<tr class="eb-etm-table-title">
 						<th scope="col">Title</th>
 						<th scope="col">Show in Page</th>
 						<th scope="col">Show in URL</th>
@@ -18,7 +18,7 @@
 					</tr>
 				</thead>
 				<tbody id="the-list">
-					<tr>
+					<tr class="status_tags-{jmp.status_tags}">
 						<td><a href="javascript:;" data-id="{jmp.tags_id}" class="click-to-edit-echbay-tags">{jmp.name_tags}</a></td>
 						<td>{jmp.page_tags}</td>
 						<td>{jmp.url_tags}</td>
