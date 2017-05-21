@@ -1,6 +1,6 @@
 <div class="efm-exemple-relative">
 	<div class="wrap">
-		<h1>EchBay Tags Manager version {tmp.etm_plugins_version}</h1>
+		<h1>{tmp.plugin_name} version {tmp.plugin_version}</h1>
 		<p class="submit">
 			<input type="button" name="create_new_tags" id="create_new_tags" class="button button-primary" value="NEW" />
 		</p>
@@ -55,6 +55,16 @@
 							<th scope="row"><label for="page_tags_all">Show in Page</label></th>
 							<td><div id="etm_show_list_page"></div>
 								<p class="description">Select page for show this script. Default show on All the page.</p></td>
+						</tr>
+						<tr class="form-field form-required term-name-wrap">
+							<th scope="row"><label for="page_tags_all">Show in Post type</label></th>
+							<td><div id="etm_show_list_post_type"></div>
+								<p class="description">Select Post type for show this script. Default show on All the Post type.</p></td>
+						</tr>
+						<tr class="form-field form-required term-name-wrap">
+							<th scope="row"><label for="page_tags_all">Show in Taxonomy</label></th>
+							<td><div id="etm_show_list_taxonomy"></div>
+								<p class="description">Select Taxonomy for show this script. Default show on All the Taxonomy.</p></td>
 						</tr>
 						<tr class="form-field form-required term-name-wrap">
 							<th scope="row"><label for="url_tags">Show in URLs</label></th>

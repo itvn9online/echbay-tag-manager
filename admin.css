@@ -28,7 +28,7 @@ body.etm-no-scroll { overflow: hidden; }
 	display: none;
 	border-left: 1px #ccc solid;
 }
-.etm-edit-tags-padding { padding: 25px; }
+.etm-edit-tags-padding { padding: 25px 25px 110px 25px; }
 body.etm-no-scroll #etm_edit_tags { display: block; }
 .eb-etm-table-title th { font-weight: bold; }
 .status_tags-hide { text-decoration: line-through; }

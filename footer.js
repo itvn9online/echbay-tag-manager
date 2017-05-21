@@ -27,6 +27,7 @@ function ETM_reset_document_write_to_old () {
 				console.log('ETM FOOTER is NULL');
 				return false;
 			}
+//			console.log( etm_code_in_footer_this_site );
 			
 			
 			// change doc write to be friendlier, temporary
