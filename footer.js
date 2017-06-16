@@ -15,6 +15,7 @@ function ETM_reset_document_write_to_old () {
 }
 
 // print footer
+//window.onload = function() {
 //if (typeof jQuery == 'function') {
 	
 	try {
@@ -41,6 +42,26 @@ function ETM_reset_document_write_to_old () {
 			//
 			document.write( etm_code_in_footer_this_site );
 //			document.write( '<!-- EchBay Tag Manager (footer) -->' + "\n" + etm_code_in_footer_this_site + '<!-- End EchBay Tag Manager (footer) -->' + "\n" );
+			
+			
+			//
+			/*
+//			var jd = '_' + Math.random().toString(32) + Math.random().toString(32);
+//			jd = jd.replace( /\./g, '_' );
+//			document.write( '<div id="' + jd + '"></div>' );
+//			var d1 = document.getElementById(jd);
+//			d1.insertAdjacentHTML('beforeend', etm_code_in_footer_this_site);
+			*/
+			
+			//
+			/*
+//			var e = document.createElement('div');
+//			e.innerHTML = etm_code_in_footer_this_site;
+//			
+//			while(e.firstChild) {
+//				element.appendChild(e.firstChild);
+//			}
+			*/
 			
 			
 			// let the above script run, then replace doc.write
@@ -74,6 +95,7 @@ else {
 	console.log('EchBay Tag Manager not start! jQuery function not found.');
 }
 */
+//};
 
 
 

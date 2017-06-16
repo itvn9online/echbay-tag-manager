@@ -15,6 +15,50 @@ var etm_click_esc_to_clode_etm_window = 0,
 //
 //try {
 	
+	// optimize tags
+	function ETM_compress_html ( str ) {
+		str = unescape( str );
+		
+		str = str.replace( / type=\"text\/javascript\"/gi, '' );
+		str = str.replace( / type=\'text\/javascript\'/gi, '' );
+		
+		//
+		var arr = str.split("\n"),
+			re = /^\w+$/,
+			ky_tu_cuoi_cung = '';
+		str = '';
+		for (var i = 0; i < arr.length; i++) {
+			arr[i] = jQuery.trim(arr[i]);
+			
+			//
+			if ( arr[i] != '' ) {
+				// remove comment
+				if ( arr[i].substr( 0, 4 ) == '<!--' && arr[i].substr( arr[i].length - 3 ) == '-->' ) {
+				}
+				else if ( arr[i].substr( 0, 2 ) == '/*' && arr[i].substr( arr[i].length - 2 ) == '*/' ) {
+				}
+				// accept code
+				else if ( arr[i].substr(0, 2) != '//' ) {
+//					if (arr[i] != '') {
+						str += arr[i];
+//					}
+					
+					//
+					ky_tu_cuoi_cung = arr[i].substr( arr[i].length - 1 );
+					if ( ky_tu_cuoi_cung != ';' ) {
+						str += "\n";
+					}
+				}
+			}
+		}
+		
+		return encodeURIComponent( str );
+	}
+	
+	function ETM_dog ( id ) {
+		return document.getElementById(id);
+	}
+	
 	function ETM_disable_input_page_tags () {
 		if ( document.getElementById('page_tags_all').checked == true ) {
 			jQuery('input[name="page_tags[]"]').prop('disabled', true);
@@ -58,9 +102,16 @@ var etm_click_esc_to_clode_etm_window = 0,
 		
 		//
 		if ( new_arr['header_tags'] == '' && new_arr['body_tags'] == '' ) {
-			jQuery('#header_tags').focus();
-			alert('Enter Header or Body code');
-			return false;
+			if ( confirm('Re-Enter Header or Body code') == false ) {
+				jQuery('input[name="status_tags"]').each(function() {
+					if ( jQuery(this).val() == 'hide' ) {
+						jQuery(this).prop('checked', true);
+					}
+				});
+				return false;
+			} else {
+				jQuery('#header_tags').focus();
+			}
 		}
 		
 		// mã hóa để đảm bảo an toàn dữ liệu trước khi submit
@@ -104,6 +155,30 @@ var etm_click_esc_to_clode_etm_window = 0,
 		
 		// set to form
 		jQuery('#header_body_tags').val( JSON.stringify( etm_arr_all_tags ) );
+		
+		// Create tab for all page, google remarketing disable document.write
+		etm_optimize_arr_all_tags = etm_arr_all_tags.slice();
+		
+		ETM_dog('etm_header_all_page').value = '';
+		ETM_dog('etm_body_all_page').value = '';
+		for ( var i = 0; i < etm_arr_all_tags.length; i++ ) {
+			// nếu tags là all page
+			if ( etm_arr_all_tags[i].page_tags == 'all'
+			// trạng thái là hiển thị
+			&& etm_arr_all_tags[i].status_tags == 'show'
+			// hiển thị trên tất cả URL
+			&& etm_arr_all_tags[i].url_tags == '' ) {
+				ETM_dog('etm_header_all_page').value += etm_arr_all_tags[i].header_tags;
+				ETM_dog('etm_body_all_page').value += etm_arr_all_tags[i].body_tags;
+				
+				etm_optimize_arr_all_tags[i] = null;
+			}
+		}
+		ETM_dog('etm_header_all_page').value = ETM_compress_html( ETM_dog('etm_header_all_page').value );
+		ETM_dog('etm_body_all_page').value = ETM_compress_html( ETM_dog('etm_body_all_page').value );
+		
+		//
+		jQuery('#header_body_optimize').val( JSON.stringify( etm_optimize_arr_all_tags ) );
 		
 		//
 		ETM_create_html_list();

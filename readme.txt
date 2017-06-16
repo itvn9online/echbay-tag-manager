@@ -7,9 +7,9 @@ Author URI: https://www.facebook.com/ech.bay
 Text Domain: echbayetm
 Tags: tag manager, tags manager, easy tag manager, google tag manager, custom tag manager, echbay tag manager, header, footer
 Requires at least: 3.3
-Tested up to: 4.7
-Stable tag: 1.0.3
-Version: 1.0.3
+Tested up to: 4.8
+Stable tag: 1.0.6
+Version: 1.0.6
 Contributors: itvn9online
 Donate link: https://paypal.me/itvn9online/5
 
@@ -25,6 +25,15 @@ Donate link: https://paypal.me/itvn9online/5
 
 == Changelog ==
 
+= Version 1.0.6 =
+* Update tags for all page
+
+= Version 1.0.5 =
+* Update for google remarketing code
+
+= Version 1.0.4 =
+* none
+
 = Version 1.0.3 =
 * Update menu global for webgiare plugin
 
@@ -38,6 +47,15 @@ Donate link: https://paypal.me/itvn9online/5
 * None
 
 == Upgrade Notice ==
+
+= Version 1.0.6 =
+* None
+
+= Version 1.0.5 =
+* Visit to plugin and re-save
+
+= Version 1.0.4 =
+* None
 
 = Version 1.0.3 =
 * None
