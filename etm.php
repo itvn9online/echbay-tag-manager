@@ -5,7 +5,7 @@
  * Plugin URI: https://www.facebook.com/webgiare.org/
  * Author: Dao Quoc Dai
  * Author URI: https://www.facebook.com/ech.bay/
- * Version: 1.0.6
+ * Version: 1.0.7
  * Text Domain: echbayetm
  * Domain Path: /languages/
  * License: GPLv2 or later
@@ -16,7 +16,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit ();
 }
 
-define ( 'ETM_DF_VERSION', '1.0.6' );
+define ( 'ETM_DF_VERSION', '1.0.7' );
 // echo ETM_DF_VERSION . "\n";
 
 define ( 'ETM_DF_DIR', dirname ( __FILE__ ) . '/' );

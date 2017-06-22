@@ -17,7 +17,7 @@
 		
 		
 		// let the above script run, then replace doc.write
-		$(window).load(function () {
+		$(window).on('load', function () {
 			document.write = etmOldDocWrite;
 		});
 		/*

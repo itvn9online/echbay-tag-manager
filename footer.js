@@ -66,7 +66,7 @@ function ETM_reset_document_write_to_old () {
 			
 			// let the above script run, then replace doc.write
 			if (typeof jQuery == 'function') {
-				jQuery(window).load(function () {
+				jQuery(window).on('load', function () {
 					ETM_reset_document_write_to_old();
 				});
 			}

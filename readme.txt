@@ -8,8 +8,8 @@ Text Domain: echbayetm
 Tags: tag manager, tags manager, easy tag manager, google tag manager, custom tag manager, echbay tag manager, header, footer
 Requires at least: 3.3
 Tested up to: 4.8
-Stable tag: 1.0.6
-Version: 1.0.6
+Stable tag: 1.0.7
+Version: 1.0.7
 Contributors: itvn9online
 Donate link: https://paypal.me/itvn9online/5
 
@@ -24,6 +24,9 @@ Donate link: https://paypal.me/itvn9online/5
 1. EchBay Tags Manager setting.
 
 == Changelog ==
+
+= Version 1.0.7 =
+* Update for jQuery 3.2.1
 
 = Version 1.0.6 =
 * Update tags for all page
@@ -47,6 +50,9 @@ Donate link: https://paypal.me/itvn9online/5
 * None
 
 == Upgrade Notice ==
+
+= Version 1.0.7 =
+* None
 
 = Version 1.0.6 =
 * None
